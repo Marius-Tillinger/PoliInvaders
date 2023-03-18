@@ -19,6 +19,8 @@ public class Player_Movement : MonoBehaviour
 
 
 
+    }
+
     private void Update() {
         // Get the mouse position and move the player to that position
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -44,6 +46,7 @@ public class Player_Movement : MonoBehaviour
         }
 
 
+        
         // Shoot when the left mouse button is pressed
         if (Input.GetMouseButtonDown(0)) {
             Shoot();
