@@ -1,8 +1,9 @@
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     public float speed = 20f;
+    public float health;
     public Vector3 direction;
 
     public Rigidbody2D rb;
@@ -10,18 +11,22 @@ public class Projectile : MonoBehaviour
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
-    }
+        health = 5f;
 
-    private void Update() {
+    }
+    
+    private void Update()
+    {
         this.transform.position += direction * (speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D hitInfo) {
-        Enemy enemy = hitInfo.GetComponent<Enemy>();
-        if (enemy != null) {
-            // enemy.TakeDamage(1);
+        Projectile projectile = hitInfo.GetComponent<Projectile>();
+        if (projectile != null) {
+            health -= 1;
+            if (health <= 0) {
+                Destroy(gameObject);
+            }
         }
-
-        Destroy(gameObject);
     }
 }

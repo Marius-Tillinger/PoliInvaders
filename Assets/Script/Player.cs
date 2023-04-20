@@ -1,27 +1,23 @@
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Player : MonoBehaviour
 {
-    public float speed = 20f;
-    public Vector3 direction;
-
+    public float health;
     public Rigidbody2D rb;
 
     private void Start() {
+        health = 5f;
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
-    }
-
-    private void Update() {
-        this.transform.position += direction * (speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D hitInfo) {
         Enemy enemy = hitInfo.GetComponent<Enemy>();
         if (enemy != null) {
-            // enemy.TakeDamage(1);
+            health -= 1;
+            if (health <= 0) {
+                Destroy(gameObject);
+            }
         }
-
-        Destroy(gameObject);
     }
 }
