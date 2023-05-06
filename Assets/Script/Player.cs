@@ -2,8 +2,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player instance;
     public float health;
     public Rigidbody2D rb;
+
+    private void Awake() {
+        instance = this;
+    }
 
     private void Start() {
         health = 5f;
@@ -17,6 +22,10 @@ public class Player : MonoBehaviour
             health -= 1;
             if (health <= 0) {
                 Destroy(gameObject);
+                if (Score.instance != null) {
+                    Score.instance.SetHighScore();
+                    Score.instance.ShowHighScore();
+                }
             }
         }
     }
