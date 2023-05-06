@@ -7,7 +7,7 @@ public class Score : MonoBehaviour
     public Text scoreText;
     public Text highScoreText;
     int score = 0;
-    public int highScore = 0;
+    int highScore = 0;
 
     private void Awake() 
     {
@@ -16,14 +16,14 @@ public class Score : MonoBehaviour
     
     private void Start() 
     {
-        scoreText.text = score.ToString();
+        scoreText.text = "Score: " + score.ToString();
         highScoreText.gameObject.SetActive(false);
     }
 
     public void AddScore(int amount)
     {
         score += amount;
-        scoreText.text = score.ToString();
+        scoreText.text = "Score: " + score.ToString();
     }
 
     public void SetHighScore()
@@ -40,7 +40,6 @@ public class Score : MonoBehaviour
         highScoreText.gameObject.SetActive(true);
         highScoreText.text = "High Score: " + highScore.ToString();
         scoreText.gameObject.SetActive(false);
-        highScoreText.transform.position = new Vector3(0, 0, 0);
     }
 
 }
