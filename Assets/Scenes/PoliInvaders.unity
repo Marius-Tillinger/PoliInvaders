@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 254916306}
   - component: {fileID: 254916310}
   - component: {fileID: 254916311}
+  - component: {fileID: 254916312}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -160,7 +161,6 @@ MonoBehaviour:
   bottomLeftLimitGameobject: {fileID: 2005062064}
   topRightLimit: {x: 0, y: 0, z: 0}
   bottomLeftLimit: {x: 0, y: 0, z: 0}
-  laserPrefab: {fileID: 4167200655730956365, guid: 5fc8ac7fd2dbb3647951aac51faa176c, type: 3}
 --- !u!61 &254916307
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -171,10 +171,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.21133333}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -185,7 +185,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 10.24, y: 10.24}
   m_EdgeRadius: 0
 --- !u!212 &254916308
 SpriteRenderer:
@@ -289,6 +289,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &254916312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254916305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f32c5a766471b1f4db951bef323296d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laserPrefab: {fileID: 4167200655730956365, guid: 5fc8ac7fd2dbb3647951aac51faa176c, type: 3}
 --- !u!1 &257567302
 GameObject:
   m_ObjectHideFlags: 0

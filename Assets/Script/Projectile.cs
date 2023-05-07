@@ -18,6 +18,9 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D hitInfo) {
         Enemy enemy = hitInfo.GetComponent<Enemy>();
-        Destroy(gameObject);
+        if (enemy != null) 
+        {
+            Destroy(gameObject);
+        }
     }
 }
