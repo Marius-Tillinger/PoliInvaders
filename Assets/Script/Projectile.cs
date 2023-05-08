@@ -4,7 +4,7 @@ public class Projectile : MonoBehaviour
 {
     public float speed = 20f;
     public Vector3 direction;
-
+    public SpriteRenderer projectileSr;
     public Rigidbody2D rb;
 
     public bool canSpawn = true;
@@ -19,6 +19,7 @@ public class Projectile : MonoBehaviour
             this.transform.position += direction * (speed * Time.deltaTime);
         else
         {
+            projectileSr.enabled = false;
             Destroy(gameObject);
         }
             
@@ -33,6 +34,7 @@ public class Projectile : MonoBehaviour
 
         if (!Player.instance.playerSr.enabled) {
             canSpawn = false;
+            
             Destroy(gameObject);
 
     }

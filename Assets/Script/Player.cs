@@ -11,6 +11,11 @@ public class Player : MonoBehaviour
 
     private Projectile projectileScript;
 
+    public Sprite defaultSprite;
+    public Sprite hurtSprite;
+    public float hurtDuration = 0.25f;
+    public float hurtTimer = 0.0f;
+
     public Sprite newSprite;
 
     private void Awake() {
@@ -34,6 +39,7 @@ public class Player : MonoBehaviour
                 if (projectileScript != null) {
                     projectileScript.enabled = false;
                 }
+
                 playerSr.enabled = false;
                 playerMov.enabled = false;
 
@@ -41,6 +47,10 @@ public class Player : MonoBehaviour
                     Score.instance.SetHighScore();
                     Score.instance.ShowHighScore();
                 }
+            }
+            else{
+                 playerSr.sprite = hurtSprite;
+                hurtTimer = hurtDuration;
             }
         }
     }
@@ -51,6 +61,14 @@ public class Player : MonoBehaviour
         {
             playerSr.sprite = newSprite;
         }
+
+        if (hurtTimer > 0) {
+            hurtTimer -= Time.deltaTime;
+            if (hurtTimer <= 0) {
+                playerSr.sprite = defaultSprite;
+            }
+        }
+
     }
 
 }

@@ -347,6 +347,10 @@ MonoBehaviour:
   rb: {fileID: 0}
   playerSr: {fileID: 254916308}
   playerMov: {fileID: 254916306}
+  defaultSprite: {fileID: 21300000, guid: 143a3a42c85a5ba4b85b2d994266d1dc, type: 3}
+  hurtSprite: {fileID: 21300000, guid: 8b6c309cb8e2ab44792b30502eb196b5, type: 3}
+  hurtDuration: 1
+  hurtTimer: 0
   newSprite: {fileID: 21300000, guid: a3ca949fb06f26b45aeb1b78fb17befa, type: 3}
 --- !u!50 &254916311
 Rigidbody2D:
