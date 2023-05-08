@@ -7,13 +7,21 @@ public class Projectile : MonoBehaviour
 
     public Rigidbody2D rb;
 
+    public bool canSpawn = true;
+
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
     }
 
     private void Update() {
-        this.transform.position += direction * (speed * Time.deltaTime);
+        if (canSpawn)
+            this.transform.position += direction * (speed * Time.deltaTime);
+        else
+        {
+            Destroy(gameObject);
+        }
+            
     }
 
     private void OnTriggerEnter2D(Collider2D hitInfo) {
@@ -22,5 +30,11 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (!Player.instance.playerSr.enabled) {
+            canSpawn = false;
+            Destroy(gameObject);
+
     }
+}
 }

@@ -6,6 +6,13 @@ public class Player : MonoBehaviour
     public float health;
     public Rigidbody2D rb;
 
+    public SpriteRenderer playerSr;
+    public Player_Movement playerMov;
+
+    private Projectile projectileScript;
+
+    public Sprite newSprite;
+
     private void Awake() {
         instance = this;
     }
@@ -21,7 +28,15 @@ public class Player : MonoBehaviour
         if (enemy != null) {
             health -= 1;
             if (health <= 0) {
-                Destroy(gameObject);
+                //Destroy(gameObject);
+
+                
+                if (projectileScript != null) {
+                    projectileScript.enabled = false;
+                }
+                playerSr.enabled = false;
+                playerMov.enabled = false;
+
                 if (Score.instance != null) {
                     Score.instance.SetHighScore();
                     Score.instance.ShowHighScore();
@@ -29,4 +44,13 @@ public class Player : MonoBehaviour
             }
         }
     }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.H))
+        {
+            playerSr.sprite = newSprite;
+        }
+    }
+
 }
