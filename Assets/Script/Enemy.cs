@@ -28,12 +28,13 @@ public class Enemy : MonoBehaviour
             if (health <= 0) {
                 Destroy(gameObject);
                 rnd.Next(0, 100);
-                if (rnd.Next(0, 100) > 50) {
-                    Instantiate(_doubleFirePU, this.transform.position, Quaternion.identity);
-                }
+                if (DoubleFire.DFactive == false)
+                    if (rnd.Next(0, 100) > 50) {
+                        Instantiate(_doubleFirePU, this.transform.position, Quaternion.identity);
+                    }
                 if (Score.instance != null) {
                     Score.instance.AddScore(1);
-}
+                }
             }
         }
     }
