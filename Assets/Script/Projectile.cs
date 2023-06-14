@@ -4,8 +4,10 @@ public class Projectile : MonoBehaviour
 {
     public float speed = 20f;
     public Vector3 direction;
-
+    public SpriteRenderer projectileSr;
     public Rigidbody2D rb;
+
+    public bool canSpawn = true;
 
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -13,15 +15,28 @@ public class Projectile : MonoBehaviour
     }
 
     private void Update() {
-        this.transform.position += direction * (speed * Time.deltaTime);
+        if (canSpawn)
+            this.transform.position += direction * (speed * Time.deltaTime);
+        else
+        {
+            projectileSr.enabled = false;
+            Destroy(gameObject);
+        }
+            
     }
 
     private void OnTriggerEnter2D(Collider2D hitInfo) {
         Enemy enemy = hitInfo.GetComponent<Enemy>();
-        if (enemy != null) {
-            // enemy.TakeDamage(1);
+        if (enemy != null) 
+        {
+            Destroy(gameObject);
         }
 
-        Destroy(gameObject);
+        if (!Player.instance.playerSr.enabled) {
+            canSpawn = false;
+            
+            Destroy(gameObject);
+
     }
+}
 }

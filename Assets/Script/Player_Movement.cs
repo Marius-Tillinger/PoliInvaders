@@ -9,7 +9,6 @@ public class Player_Movement : MonoBehaviour
     public Vector3 topRightLimit;
     public Vector3 bottomLeftLimit;
 
-    public Projectile laserPrefab;
     void Start () {
         // Set the cursor to not be visible
         Cursor.visible = false;
@@ -30,19 +29,5 @@ public class Player_Movement : MonoBehaviour
             Mathf.Clamp(transform.position.y, bottomLeftLimit.y, topRightLimit.y),
             transform.position.z
         );
-        
-        // Shoot when the left mouse button is pressed
-        if (Input.GetMouseButtonDown(0)) {
-            Shoot();
-        }
     }
-
-    void Shoot()
-    {
-        Vector3 laserOffset = new Vector3(0.6f, 0.36f, 0);
-        Vector3 spawnPosition = transform.position + laserOffset;
-        Instantiate(laserPrefab, spawnPosition, Quaternion.identity);
-    }
-
-
 }
