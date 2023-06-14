@@ -129,7 +129,7 @@ MonoBehaviour:
   health: 0
   direction: {x: -1, y: 0, z: 0}
   rb: {fileID: 0}
-  _doubleFirePU: {fileID: 2587679022031649448, guid: 3553fcc5f9e774345a086a0b1afc88c4, type: 3}
+  _doubleFirePU: {fileID: 4647582348536342184, guid: 03faf152ec5373d49ab3a8e30eea9fa1, type: 3}
 --- !u!50 &6985519155870710881
 Rigidbody2D:
   serializedVersion: 4
