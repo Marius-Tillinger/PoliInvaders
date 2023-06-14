@@ -18,7 +18,7 @@ public class HighscoreTable : MonoBehaviour
         entryTemplate = entryContainer.Find("highscoreEntryTemplate");
 
         entryTemplate.gameObject.SetActive(false);
-        highscoreEntryTransformList = new List<Transform>();
+        
 
 
         string jsonString = PlayerPrefs.GetString("highscoreTable");
@@ -58,9 +58,9 @@ public class HighscoreTable : MonoBehaviour
         //highscoreEntryList.Sort((entry1, entry2) => entry2.score.CompareTo(entry1.score));
 
         
-        foreach (HighscoreEntry highscoreEntry in highscores.highscoreEntryList) {
+foreach (HighscoreEntry highscoreEntry in highscores.highscoreEntryList) {
             CreateHighscoreEntryTransform(highscoreEntry, entryContainer, highscoreEntryTransformList);
-        }
+        } 
 
         /*Highscores highscores = new Highscores{highscoreEntryList = highscoreEntryList};
         string json = JsonUtility.ToJson(highscores);
@@ -97,7 +97,7 @@ public class HighscoreTable : MonoBehaviour
         entryTransform.Find("posText").GetComponent<Text>().text = rankString;
             
         int score =highscoreEntry.score;
-        entryTransform.Find("scoreRank").GetComponent<Text>().text = score.ToString();
+        entryTransform.Find("scoreText").GetComponent<Text>().text = score.ToString();
 
         entryTransform.Find("background").gameObject.SetActive(rank % 2 == 1);
         
