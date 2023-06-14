@@ -304,7 +304,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 143a3a42c85a5ba4b85b2d994266d1dc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -524,7 +524,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyRB: {fileID: 7064216805800314884, guid: 1c8dc9cd833d7bb408e5e76ddb7fe077, type: 3}
-  interval: 1
+  interval: 0.6
+  speedUpdateInterval: 5
+  speedIncreaseAmount: 0.8
 --- !u!212 &440080374
 SpriteRenderer:
   m_ObjectHideFlags: 0
