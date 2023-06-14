@@ -15,6 +15,7 @@ public class EnemySpawn : MonoBehaviour
         StartCoroutine(UpdateSpeedCoroutine());
     }
 
+    // Instantiate an enemy every interval seconds
     IEnumerator InstantiateEnemyCoroutine()
     {
         while (true)
@@ -24,6 +25,7 @@ public class EnemySpawn : MonoBehaviour
         }
     }
 
+    // Update the speed of all enemies every speedUpdateInterval seconds
     IEnumerator UpdateSpeedCoroutine()
     {
         while (true)
@@ -33,6 +35,7 @@ public class EnemySpawn : MonoBehaviour
         }
     }
 
+    // Instantiate an enemy at a random position on the y-axis with a speed and direction
     void InstantiateEnemy()
     {
         if (Player.instance.health == 0)
@@ -47,6 +50,7 @@ public class EnemySpawn : MonoBehaviour
         enemy.SetSpeed(enemySpeed); // Set the initial speed
     }
 
+    // Update the speed of all enemies
     void UpdateEnemySpeed()
     {
         enemySpeed += speedIncreaseAmount;
@@ -57,6 +61,7 @@ public class EnemySpawn : MonoBehaviour
         }
     }
 
+    // Stop all coroutines when the player dies
     void Update()
     {
         if (Player.instance != null && Player.instance.health == 0)

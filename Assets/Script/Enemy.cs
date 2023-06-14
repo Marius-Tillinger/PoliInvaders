@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public Vector3 direction;
     public Rigidbody2D rb;
     public DoubleFire _doubleFirePU;
+    public ShieldPU _shieldPU;
     private System.Random rnd = new System.Random();
 
     private void Awake()
@@ -28,11 +29,20 @@ public class Enemy : MonoBehaviour
             health -= 1;
             if (health <= 0)
             {
+                // if enemy is dead, destroy it
                 Destroy(gameObject);
-                if (rnd.Next(0, 100) > 70)
+
+                // Spawn powerups
+                if (rnd.Next(0, 100) > 90)
                 {
                     Instantiate(_doubleFirePU, this.transform.position, Quaternion.identity);
                 }
+                else if (rnd.Next(0, 100) < 10)
+                {
+                    Instantiate(_shieldPU, this.transform.position, Quaternion.identity);
+                }
+
+                // Add score
                 if (Score.instance != null)
                 {
                     Score.instance.AddScore(1);

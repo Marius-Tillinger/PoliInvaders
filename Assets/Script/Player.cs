@@ -55,6 +55,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    // Added small easter egg for fun :)
     private void Update()
     {
         if (Input.GetKey(KeyCode.H))
