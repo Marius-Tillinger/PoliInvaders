@@ -40,7 +40,7 @@ public class EnemySpawn : MonoBehaviour
             return;
         }
 
-        Vector3 randomPosition = new Vector3(this.transform.position.x, Random.Range(-9f, 9f), 0);
+        Vector3 randomPosition = new Vector3(this.transform.position.x, Random.Range(-9f, 6.5f), 0);
         GameObject enemyObj = Instantiate(enemyRB, randomPosition, Quaternion.identity);
         Enemy enemy = enemyObj.GetComponent<Enemy>();
         enemy.direction = Vector3.left; // Set the desired direction
