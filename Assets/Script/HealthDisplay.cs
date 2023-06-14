@@ -48,6 +48,7 @@ public class HealthDisplay : MonoBehaviour
             {
                 {
                     hearts[i].enabled = false;
+                    
                 }
             }
         }
