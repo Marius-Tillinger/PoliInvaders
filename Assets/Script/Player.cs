@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.IO;
+using System;
 
 public class Player : MonoBehaviour
 {
@@ -33,6 +35,8 @@ public class Player : MonoBehaviour
         if (enemy != null) {
             health -= 1;
             if (health <= 0) {
+                
+                //MOARE PLAYERU :((
                 //Destroy(gameObject);
 
                 
@@ -42,16 +46,25 @@ public class Player : MonoBehaviour
 
                 playerSr.enabled = false;
                 playerMov.enabled = false;
+                
+                //HighscoreTable highscoreTable = FindObjectOfType<HighscoreTable>();
 
-                if (Score.instance != null) {
+
+                    //WriteScoreToCSV(Score.instance.getScore());
                     Score.instance.SetHighScore();
                     Score.instance.ShowHighScore();
-                }
+                    //highscoreTable.AddHighscoreEntry(Score.instance.getScore());
+                    // AICI SCRIU IN DA FILE SCORUL
+                    
+                    
             }
-            else{
-                 playerSr.sprite = hurtSprite;
+            else
+            {
+                playerSr.sprite = hurtSprite;
                 hurtTimer = hurtDuration;
             }
+
+
         }
     }
 
@@ -71,5 +84,7 @@ public class Player : MonoBehaviour
         }
 
     }
+    
+
 
 }
