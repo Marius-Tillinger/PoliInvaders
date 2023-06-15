@@ -97,14 +97,14 @@ public class Player : MonoBehaviour
     
     private void WriteScoreToCSV(int score)
     {
-        string filePath = "scores.csv";
+        string filePath = "D:\\PoliInva\\score.csv";
         
         Debug.Log("Intra in csv PALYERUYY cu scoru " + score + "!!");
         
         //filePath = "D:\\PoliInvaders-main\\scores.csv";
-        string m_Path = Application.dataPath + "/HighscoreTable/score.csv";
-        filePath = m_Path;
-        Debug.Log("CSV File Path: " + m_Path);
+        //string m_Path = Application.dataPath + "/HighscoreTable/score.csv";
+        //filePath = m_Path;
+        //Debug.Log("CSV File Path: " + m_Path);
 
         // Check if the CSV file exists
         bool fileExists = File.Exists(filePath);

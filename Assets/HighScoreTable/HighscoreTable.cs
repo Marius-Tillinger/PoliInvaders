@@ -173,10 +173,10 @@ public class HighscoreTable : MonoBehaviour
         
         Debug.Log("Intra in csv");
 
-        //filePath = "D:\\PoliInvaders-main\\scores.csv";
-        string m_Path = Application.dataPath + "/HighscoreTable/score.csv";
-        filePath = m_Path;
-        Debug.Log("CSV File Path: " + m_Path);
+        filePath = "D:\\PoliInva\\score.csv";
+        //string m_Path = Application.dataPath ;
+        //filePath = m_Path;
+        //Debug.Log("CSV File Path: " + m_Path);
         
         if (!File.Exists(filePath))
         {
