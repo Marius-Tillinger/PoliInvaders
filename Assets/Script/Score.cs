@@ -3,43 +3,61 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    public static Score instance;
+    private static Score instance;
+    private int score = 0;
     public Text scoreText;
-    public Text highScoreText;
-    int score = 0;
-    int highScore = 0;
 
-    private void Awake() 
+    public static Score Instance
     {
-        instance = this;
-    }
-    
-    private void Start() 
-    {
-        scoreText.text = "Score: " + score.ToString();
-        highScoreText.gameObject.SetActive(false);
-    }
-
-    public void AddScore(int amount)
-    {
-        score += amount;
-        scoreText.text = "Score: " + score.ToString();
-    }
-
-    public void SetHighScore()
-    {
-        if (score > highScore) 
+        get
         {
-            highScore = score;
-            PlayerPrefs.SetInt("HighScore", highScore);
+            if (instance == null)
+            {
+                instance = FindObjectOfType<Score>();
+                if (instance == null)
+                {
+                    GameObject singletonObject = new GameObject();
+                    instance = singletonObject.AddComponent<Score>();
+                    singletonObject.name = "Score (Singleton)";
+                    DontDestroyOnLoad(singletonObject);
+                }
+            }
+            return instance;
         }
     }
 
-    public void ShowHighScore() 
+    public int CurrentScore
     {
-        highScoreText.gameObject.SetActive(true);
-        highScoreText.text = "High Score: " + highScore.ToString();
-        scoreText.gameObject.SetActive(false);
+        get { return score; }
     }
 
+    public void AddScore(int points)
+    {
+        score += points;
+        scoreText.text = "Score:\n" + score.ToString();
+    }
+
+    public void ResetScore()
+    {
+        score = 0;
+        scoreText.text = "Score:\n" + score.ToString();
+    }
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+    }
+
+    private void Start()
+    {
+        scoreText.text = "Score:\n" + score.ToString();
+    }
 }

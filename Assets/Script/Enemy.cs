@@ -43,9 +43,9 @@ public class Enemy : MonoBehaviour
                 }
 
                 // Add score
-                if (Score.instance != null)
+                if (Score.Instance != null)
                 {
-                    Score.instance.AddScore(1);
+                    Score.Instance.AddScore(1);
                 }
             }
         }

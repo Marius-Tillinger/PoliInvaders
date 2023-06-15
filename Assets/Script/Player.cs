@@ -43,10 +43,9 @@ public class Player : MonoBehaviour
                 playerSr.enabled = false;
                 playerMov.enabled = false;
 
-                if (Score.instance != null) {
-                    Score.instance.SetHighScore();
-                    Score.instance.ShowHighScore();
-                }
+                // if (Score.instance != null) {
+                //     Score.instance.SetHighScore();
+                // }
             }
             else{
                  playerSr.sprite = hurtSprite;
