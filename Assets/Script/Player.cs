@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.IO;
+using System;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
@@ -34,8 +36,15 @@ public class Player : MonoBehaviour
         if (enemy != null) {
             health -= 1;
             if (health <= 0) {
+                
+                //MOARE PLAYERU :((
                 //Destroy(gameObject);
-
+                //adaug aici scorul
+                
+                Debug.Log("Ba hai ca scrie in csv" + Score.Instance.CurrentScore);
+                WriteScoreToCSV(Score.Instance.CurrentScore);
+                
+                
                 
                 if (projectileScript != null) {
                     projectileScript.enabled = false;
@@ -44,18 +53,16 @@ public class Player : MonoBehaviour
                 playerSr.enabled = false;
                 playerMov.enabled = false;
 
-                if (Score.instance != null) {
-                    Score.instance.SetHighScore();
-                    Score.instance.ShowHighScore();
-                }
-
                 Cursor.visible = true;
                 SceneManager.LoadScene("GameOverScene");
             }
-            else{
-                 playerSr.sprite = hurtSprite;
+            else
+            {
+                playerSr.sprite = hurtSprite;
                 hurtTimer = hurtDuration;
             }
+
+
         }
     }
 
@@ -75,5 +82,34 @@ public class Player : MonoBehaviour
         }
 
     }
+    
+    private void WriteScoreToCSV(int score)
+    {
+        string filePath = "scores.csv";
+        
+        Debug.Log("Intra in csv PALYERUYY cu scoru " + score + "!!");
+        
+        //filePath = "D:\\PoliInvaders-main\\scores.csv";
+        string m_Path = Application.dataPath + "/HighscoreTable/score.csv";
+        filePath = m_Path;
+        Debug.Log("CSV File Path: " + m_Path);
+
+        // Check if the CSV file exists
+        bool fileExists = File.Exists(filePath);
+
+        // Create or append to the CSV file
+        using (StreamWriter sw = new StreamWriter(filePath, true))
+        {
+            // If the file doesn't exist, write the header row
+            if (!fileExists)
+            {
+                sw.WriteLine("Score");
+            }
+
+            // Write the score to a new row
+            sw.WriteLine(score.ToString());
+        }
+    }
+
 
 }

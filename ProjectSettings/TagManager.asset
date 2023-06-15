@@ -6,14 +6,15 @@ TagManager:
   tags:
   - DoubleFirePU
   - ShieldPU
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Enemy
   - 
   - 
   - 
