@@ -36,3 +36,7 @@ In a hot summer day, while the students of FMI were looking over their textbooks
 # UML Diagram:
 
 ![UML Diagram](UML.jpeg)
+
+# Backlog:
+
+https://github.com/users/Marius-Tillinger/projects/1
