@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -47,6 +48,9 @@ public class Player : MonoBehaviour
                     Score.instance.SetHighScore();
                     Score.instance.ShowHighScore();
                 }
+
+                Cursor.visible = true;
+                SceneManager.LoadScene("GameOverScene");
             }
             else{
                  playerSr.sprite = hurtSprite;
