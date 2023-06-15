@@ -34,7 +34,7 @@ public class HighscoreTable : MonoBehaviour
         }
         //Ma asigur ca am lista goala
         
-        if (highscores == null)
+        /*if (highscores == null)
         {
             Debug.Log("Initializing table with default values...");
             
@@ -45,7 +45,7 @@ public class HighscoreTable : MonoBehaviour
             
             jsonString = PlayerPrefs.GetString("highscoreTable");
             highscores = JsonUtility.FromJson<Highscores>(jsonString);
-        }
+        }*/
         //i will comantate this haha
         
         //citesc scorurile din score.csv
@@ -83,8 +83,12 @@ public class HighscoreTable : MonoBehaviour
         PlayerPrefs.Save();
         Debug.Log(PlayerPrefs.GetString("highscoreTable"));*/
         
-        /*PlayerPrefs.DeleteKey("highscoreTable");
-        PlayerPrefs.Save();*/
+        /*
+        PlayerPrefs.DeleteKey("highscoreTable");
+        PlayerPrefs.Save();
+        */
+        
+        
 
     }
     
