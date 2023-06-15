@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
 using System.IO;
 using System;
 
@@ -132,13 +131,11 @@ public class HighscoreTable : MonoBehaviour
         
     }
     
-        private void LoadScoresFromCSV(string filePath)
+    private void LoadScoresFromCSV(string filePath)
     {
         
         Debug.Log("Intra in csv");
-        
-        string fileName = "scores.csv";
-        //filePath = Path.Combine(Application.persistentDataPath, fileName);
+
         //filePath = "D:\\PoliInvaders-main\\scores.csv";
         string m_Path = Application.dataPath + "/HighscoreTable/score.csv";
         filePath = m_Path;

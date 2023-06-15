@@ -20,14 +20,14 @@ public class RetryGame : MonoBehaviour
     public void LoadGame()
     {
         Cursor.visible = false;
-        Score.Instance.ResetScore();
+        //Score.Instance.ResetScore();
         SceneManager.LoadScene("PoliInvaders");
     }
 
     public void LoadMenu()
     {
         Cursor.visible = true;
-        Score.Instance.ResetScore();
+        //Score.Instance.ResetScore();
         SceneManager.LoadScene("MainMenuScene");
     }
 

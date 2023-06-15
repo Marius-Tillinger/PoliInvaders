@@ -33,22 +33,6 @@ public class Score : MonoBehaviour
     {
         get { return score; }
     }
-    
-    
-    
-    /*public void AddScoreToLeaderboard()
-    {
-        
-        // Call the AddHighscoreEntry method from the HighscoreTable script
-        HighscoreTable highscoreTable = FindObjectOfType<HighscoreTable>();
-        if (highscoreTable != null)
-        {
-            highscoreTable.AddHighscoreEntry(score);
-        }
-    }*/
-    
-
-
 
     public void AddScore(int points)
     {
@@ -60,10 +44,6 @@ public class Score : MonoBehaviour
     {
         score = 0;
         scoreText.text = "Score:\n" + score.ToString();
-    }
-
-    public void MoveScore() {
-        scoreText.transform.position += new Vector3(10, 0, 0);
     }
 
     private void Awake()

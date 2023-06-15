@@ -66,6 +66,7 @@ public class EnemySpawn : MonoBehaviour
     {
         if (Player.instance != null && Player.instance.health == 0)
         {
+            enemySpeed = 5f;
             StopAllCoroutines();
         }
     }

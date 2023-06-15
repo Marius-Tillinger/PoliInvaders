@@ -52,12 +52,6 @@ public class Player : MonoBehaviour
 
                 playerSr.enabled = false;
                 playerMov.enabled = false;
-                
-                //HighscoreTable highscoreTable = FindObjectOfType<HighscoreTable>();
-
-                // if (Score.instance != null) {
-                //     Score.instance.SetHighScore();
-                // }
 
                 Cursor.visible = true;
                 SceneManager.LoadScene("GameOverScene");
@@ -95,8 +89,6 @@ public class Player : MonoBehaviour
         
         Debug.Log("Intra in csv PALYERUYY cu scoru " + score + "!!");
         
-        string fileName = "scores.csv";
-        //filePath = Path.Combine(Application.persistentDataPath, fileName);
         //filePath = "D:\\PoliInvaders-main\\scores.csv";
         string m_Path = Application.dataPath + "/HighscoreTable/score.csv";
         filePath = m_Path;
