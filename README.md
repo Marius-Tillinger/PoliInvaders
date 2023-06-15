@@ -35,4 +35,4 @@ In a hot summer day, while the students of FMI were looking over their textbooks
 
 # UML Diagram:
 
-![UML Diagram]("C:\Users\Marius\Downloads\WhatsApp Image 2023-06-15 at 15.33.45.jpeg")
+![UML Diagram](UML.jpeg)
