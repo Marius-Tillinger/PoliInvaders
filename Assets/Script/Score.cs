@@ -1,5 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
+using System;
+
 
 public class Score : MonoBehaviour
 {
@@ -30,6 +33,22 @@ public class Score : MonoBehaviour
     {
         get { return score; }
     }
+    
+    
+    
+    /*public void AddScoreToLeaderboard()
+    {
+        
+        // Call the AddHighscoreEntry method from the HighscoreTable script
+        HighscoreTable highscoreTable = FindObjectOfType<HighscoreTable>();
+        if (highscoreTable != null)
+        {
+            highscoreTable.AddHighscoreEntry(score);
+        }
+    }*/
+    
+
+
 
     public void AddScore(int points)
     {
