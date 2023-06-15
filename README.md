@@ -40,3 +40,7 @@ In a hot summer day, while the students of FMI were looking over their textbooks
 # Backlog:
 
 https://github.com/users/Marius-Tillinger/projects/1
+
+# Demo:
+
+https://drive.google.com/file/d/1FV0y--A4Phy8Tn3KyeD5Ct2tXHa4WeIU/view?usp=drive_link
