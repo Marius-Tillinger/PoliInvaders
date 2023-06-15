@@ -131,6 +131,43 @@ public class HighscoreTable : MonoBehaviour
         
     }
     
+    public void AddHighscoreEntry(int score)
+    {
+        // Create HighscoreEntry
+        HighscoreEntry highscoreEntry = new HighscoreEntry { score = score };
+
+        // Load saved Highscores
+        string jsonString = PlayerPrefs.GetString("highscoreTable");
+        Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
+
+        if (highscores == null)
+        {
+            // There's no stored table, initialize
+            highscores = new Highscores()
+            {
+                highscoreEntryList = new List<HighscoreEntry>()
+            };
+        }
+
+        // Add new entry to Highscores
+        highscores.highscoreEntryList.Add(highscoreEntry);
+
+        // Sort the highscore list
+        highscores.highscoreEntryList.Sort((a, b) => b.score.CompareTo(a.score));
+
+        // Limit the list to a specific number of entries (e.g., 10)
+        const int maxEntries = 10;
+        if (highscores.highscoreEntryList.Count > maxEntries)
+        {
+            highscores.highscoreEntryList = highscores.highscoreEntryList.GetRange(0, maxEntries);
+        }
+
+        // Save updated Highscores
+        string json = JsonUtility.ToJson(highscores);
+        PlayerPrefs.SetString("highscoreTable", json);
+        PlayerPrefs.Save();
+    }
+
     private void LoadScoresFromCSV(string filePath)
     {
         
@@ -170,43 +207,6 @@ public class HighscoreTable : MonoBehaviour
             AddHighscoreEntry(score);
         }
     }
-    
-    public void AddHighscoreEntry(int score)
-    {
-        // Create HighscoreEntry
-        HighscoreEntry highscoreEntry = new HighscoreEntry { score = score };
-
-        // Load saved Highscores
-        string jsonString = PlayerPrefs.GetString("highscoreTable");
-        Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
-
-        if (highscores == null)
-        {
-            // There's no stored table, initialize
-            highscores = new Highscores()
-            {
-                highscoreEntryList = new List<HighscoreEntry>()
-            };
-        }
-
-        // Add new entry to Highscores
-        highscores.highscoreEntryList.Add(highscoreEntry);
-
-        // Sort the highscore list
-        highscores.highscoreEntryList.Sort((a, b) => b.score.CompareTo(a.score));
-
-        // Limit the list to a specific number of entries (e.g., 10)
-        const int maxEntries = 10;
-        if (highscores.highscoreEntryList.Count > maxEntries)
-        {
-            highscores.highscoreEntryList = highscores.highscoreEntryList.GetRange(0, maxEntries);
-        }
-
-        // Save updated Highscores
-        string json = JsonUtility.ToJson(highscores);
-        PlayerPrefs.SetString("highscoreTable", json);
-        PlayerPrefs.Save();
-    }
 
     
     private class Highscores
@@ -221,6 +221,5 @@ public class HighscoreTable : MonoBehaviour
         public int score;
         
     }
-    
     
 }
