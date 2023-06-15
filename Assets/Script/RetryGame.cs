@@ -31,6 +31,13 @@ public class RetryGame : MonoBehaviour
         SceneManager.LoadScene("MainMenuScene");
     }
 
+        public void LoadLeaderBoard()
+    {
+        Cursor.visible = true;
+        //Score.Instance.ResetScore();
+        SceneManager.LoadScene("Leaderboard");
+    }
+
     public void QuitGame()
     {
         Application.Quit();
