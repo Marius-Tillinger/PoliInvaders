@@ -8,7 +8,17 @@ It was created using Unity Engine and C#.
     <image src = "https://cdn.worldvectorlogo.com/logos/c--4.svg" width = 200px height = 200px>
 </div>
 
-#User Stories
+# Authors:
+
+- [Marius Tillinger 243](https://github.com/Marius-Tillinger)
+- [Alexandru Balescu 244](https://github.com/Brioflator)
+- [Andrei Harnagea 241](https://github.com/out-ruined69)
+
+# Epic Story:
+
+In a hot summer day, while the students of FMI were looking over their textbooks and studying for the upcoming exams, a group of Politehnica students decided to invade the college. They were looking for a way to be true programmers and learn the ways of using other languages apart from ASM, C and C++. A brave student, who was working on his project for MDS decided to stop them so he can finish his project in peace. He asked for help from a CTI student because he needed high-tech gadgets to fight the invaders and went to the basement where he knew the battle will commence. 
+
+# User Stories:
 
 1.	As a user I need to start the game.
 2.	As a user I need to move around my character.
@@ -23,8 +33,14 @@ It was created using Unity Engine and C#.
 11.	As a user I need to know when I die
 12.	As a user I need to replay the game
 
-# Authors:
+# UML Diagram:
 
-- [Marius Tillinger](https://github.com/Marius-Tillinger)
-- [Alexandru Balescu](https://github.com/Brioflator)
-- [Andrei Harnagea](https://github.com/out-ruined69)
+![UML Diagram](UML.jpeg)
+
+# Backlog:
+
+https://github.com/users/Marius-Tillinger/projects/1
+
+# Demo:
+
+https://drive.google.com/file/d/1FV0y--A4Phy8Tn3KyeD5Ct2tXHa4WeIU/view?usp=drive_link
