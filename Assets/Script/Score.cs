@@ -43,6 +43,10 @@ public class Score : MonoBehaviour
         scoreText.text = "Score:\n" + score.ToString();
     }
 
+    public void MoveScore() {
+        scoreText.transform.position += new Vector3(10, 0, 0);
+    }
+
     private void Awake()
     {
         if (instance != null && instance != this)
