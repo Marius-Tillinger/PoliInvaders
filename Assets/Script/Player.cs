@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.IO;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -49,14 +50,12 @@ public class Player : MonoBehaviour
                 
                 //HighscoreTable highscoreTable = FindObjectOfType<HighscoreTable>();
 
+                // if (Score.instance != null) {
+                //     Score.instance.SetHighScore();
+                // }
 
-                    //WriteScoreToCSV(Score.instance.getScore());
-                    Score.instance.SetHighScore();
-                    Score.instance.ShowHighScore();
-                    //highscoreTable.AddHighscoreEntry(Score.instance.getScore());
-                    // AICI SCRIU IN DA FILE SCORUL
-                    
-                    
+                Cursor.visible = true;
+                SceneManager.LoadScene("GameOverScene");
             }
             else
             {

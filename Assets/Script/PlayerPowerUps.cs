@@ -58,7 +58,9 @@ public class PlayerPowerUps : MonoBehaviour
         {
             shieldActive = true;
             playerSprite.sprite = shieldSprite; // Change the player sprite to the shield sprite
-            playerCollider.enabled = false; // Disable the player's collider
+
+            // Ignore collisions with enemies
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
 
             StartCoroutine(ResetShieldPowerUpCoroutine());
         }
@@ -70,7 +72,9 @@ public class PlayerPowerUps : MonoBehaviour
 
         shieldActive = false;
         playerSprite.sprite = defaultSprite; // Change the player sprite back to the default sprite
-        playerCollider.enabled = true; // Enable the player's collider
+
+        // Revert collisions with enemies
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);
     }
 
     private IEnumerator ResetDoubleFirePowerUpCoroutine()
