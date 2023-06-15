@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
 using System.IO;
 using System;
 
@@ -14,7 +13,7 @@ public class HighscoreTable : MonoBehaviour
     private List<Transform> highscoreEntryTransformList;
     //private List<HighscoreEntry> highscoreEntryList;
     
-    private void Awake()
+    private void Start()
     {
         entryContainer = transform.Find("highscoreEntryContainer");
         //Debug.Log("Container: " + entryContainer);
@@ -132,48 +131,6 @@ public class HighscoreTable : MonoBehaviour
         
     }
     
-        private void LoadScoresFromCSV(string filePath)
-    {
-        
-        Debug.Log("Intra in csv");
-        
-        string fileName = "scores.csv";
-        //filePath = Path.Combine(Application.persistentDataPath, fileName);
-        //filePath = "D:\\PoliInvaders-main\\scores.csv";
-        string m_Path = Application.dataPath + "/HighscoreTable/score.csv";
-        filePath = m_Path;
-        Debug.Log("CSV File Path: " + m_Path);
-        
-        if (!File.Exists(filePath))
-        {
-            Debug.LogWarning("Score file not found: " + filePath);
-            return;
-        }
-
-        string[] lines = File.ReadAllLines(filePath);
-        List<int> scores = new List<int>();
-
-        for (int i = 0; i < lines.Length; i++)
-        {
-            string[] fields = lines[i].Split(',');
-
-            if (fields.Length > 0)
-            {
-                int score;
-                if (int.TryParse(fields[0], out score))
-                {
-                    scores.Add(score);
-                }
-            }
-        }
-
-        // Add scores to highscore table
-        foreach (int score in scores)
-        {
-            AddHighscoreEntry(score);
-        }
-    }
-    
     public void AddHighscoreEntry(int score)
     {
         // Create HighscoreEntry
@@ -211,6 +168,46 @@ public class HighscoreTable : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    private void LoadScoresFromCSV(string filePath)
+    {
+        
+        Debug.Log("Intra in csv");
+
+        //filePath = "D:\\PoliInvaders-main\\scores.csv";
+        string m_Path = Application.dataPath + "/HighscoreTable/score.csv";
+        filePath = m_Path;
+        Debug.Log("CSV File Path: " + m_Path);
+        
+        if (!File.Exists(filePath))
+        {
+            Debug.LogWarning("Score file not found: " + filePath);
+            return;
+        }
+
+        string[] lines = File.ReadAllLines(filePath);
+        List<int> scores = new List<int>();
+
+        for (int i = 0; i < lines.Length; i++)
+        {
+            string[] fields = lines[i].Split(',');
+
+            if (fields.Length > 0)
+            {
+                int score;
+                if (int.TryParse(fields[0], out score))
+                {
+                    scores.Add(score);
+                }
+            }
+        }
+
+        // Add scores to highscore table
+        foreach (int score in scores)
+        {
+            AddHighscoreEntry(score);
+        }
+    }
+
     
     private class Highscores
     {
@@ -224,6 +221,5 @@ public class HighscoreTable : MonoBehaviour
         public int score;
         
     }
-    
     
 }
