@@ -19,7 +19,9 @@ public class Player : MonoBehaviour
     public float hurtDuration = 0.25f;
     public float hurtTimer = 0.0f;
 
-    public Sprite newSprite;
+    public Sprite pinkSprite;
+    public Sprite purpleSprite;
+    public Sprite orangeSprite;
 
     private void Awake() {
         instance = this;
@@ -77,7 +79,17 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.H))
         {
-            playerSr.sprite = newSprite;
+            playerSr.sprite = pinkSprite;
+        }
+        
+        if (Input.GetKey(KeyCode.M))
+        {
+            playerSr.sprite = orangeSprite;
+        }
+        
+        if (Input.GetKey(KeyCode.B))
+        {
+            playerSr.sprite = purpleSprite;
         }
 
         if (hurtTimer > 0) {
